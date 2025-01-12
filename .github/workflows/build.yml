@@ -17,3 +17,7 @@ jobs:
         uses: SonarSource/sonarcloud-github-action@master
         env: # Needed to get PR information, if any
           SONAR_TOKEN: {[SONAR_TOKEN]}
+      - name: OWASP ZAP Scan
+        uses: zaproxy/action-baseline@v0.0.12
+        with:
+          target: 'http://localhost:3000'
