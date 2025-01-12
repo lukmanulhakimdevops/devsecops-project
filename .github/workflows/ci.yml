@@ -19,3 +19,7 @@ jobs:
       run: npm test || echo "No tests to run"
     - name: Build Docker image
       run: docker build . -t devsecops-project
+    - name: OWASP ZAP Scan
+      uses: zaproxy/action-baseline@v0.0.12
+      with:
+        target: 'http://localhost:3000'
