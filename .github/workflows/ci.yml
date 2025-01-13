@@ -19,3 +19,8 @@ jobs:
       run: npm test || echo "No tests to run"
     - name: Build Docker image
       run: docker build . -t devsecops-project
+    - name: Run OWASP ZAP Baseline Scan
+      uses: zaproxy/action-baseline@v0.3.1
+      with:
+        target: 'http://localhost:3000' # Replace with your app's URL
+        rules_file_name: '.zap/rules.tsv' # Optional
